@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  background:#0a0e14;
+  font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,'Apple SD Gothic Neo',monospace;
+  color:#c4d0de;position:relative;
+}
+body::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 400px at 12% -8%, rgba(63,185,80,.13), transparent 60%),
+             radial-gradient(600px 400px at 105% 15%, rgba(121,192,255,.09), transparent 55%);}
+body::after{content:"";position:absolute;inset:0;opacity:.4;
+  background-image:linear-gradient(#1e2a3a 1px,transparent 1px),linear-gradient(90deg,#1e2a3a 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(circle at 50% 0%,#000,transparent 80%);}
+.card{position:absolute;inset:56px 64px;z-index:2;
+  background:rgba(17,24,38,.72);border:1px solid #26364a;border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;}
+.bar{display:flex;align-items:center;gap:12px;padding:18px 26px;background:#0f1520;border-bottom:1px solid #1e2a3a}
+.dots{display:flex;gap:9px}
+.dots i{width:15px;height:15px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:#ff5f56}.dots i:nth-child(2){background:#ffbd2e}.dots i:nth-child(3){background:#27c93f}
+.bar span{font-size:17px;color:#566178}
+.bar b{color:#c4d0de;font-weight:500}
+.inner{flex:1;padding:34px 46px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.prompt{font-size:21px;color:#566178;margin-bottom:6px}
+.prompt .u{color:#3fb950}.prompt .p{color:#79c0ff}.prompt .c{color:#c4d0de}
+h1{font-size:86px;font-weight:800;letter-spacing:-1px;line-height:1.05;
+  background:linear-gradient(180deg,#fff,#9fb0c4);-webkit-background-clip:text;color:transparent;margin:2px 0 8px}
+.role{font-size:29px;color:#7ee787;font-weight:500}
+.role .amb{color:#ffcb6b}
+.tagline{font-size:21px;color:#7d8da3;margin-top:14px}
+.tagline .g{color:#7ee787}
+.stats{display:flex;gap:14px;margin-top:26px}
+.stat{background:#0f1520;border:1px solid #26364a;border-radius:10px;padding:14px 22px;text-align:center}
+.stat .n{font-size:32px;font-weight:800;color:#7ee787;line-height:1.1}
+.stat .n em{font-style:normal;font-size:.6em;color:#ffcb6b}
+.stat .l{font-size:14px;color:#7d8da3;margin-top:5px;white-space:nowrap}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;font-size:18px;color:#566178}
+.foot .url{color:#79c0ff}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bar">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span><b>minkihan</b> ~ /portfolio - zsh</span>
+  </div>
+  <div class="inner">
+    <div>
+      <div class="prompt"><span class="u">minkihan</span><span class="p">@dev</span>:~$ <span class="c">whoami</span></div>
+      <h1>한민기</h1>
+      <div class="role">12년차 백엔드 엔지니어 <span class="amb">|</span> 폴리글랏 풀사이클</div>
+      <div class="tagline"><span class="g">&gt;</span> 앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시합니다.</div>
+    </div>
+    <div>
+      <div class="stats">
+        <div class="stat"><div class="n">55<em>x</em></div><div class="l">이미지 축소</div></div>
+        <div class="stat"><div class="n">11<em>대</em></div><div class="l">GPU 로드밸런싱</div></div>
+        <div class="stat"><div class="n">53<em>%</em></div><div class="l">CDN 비용 절감</div></div>
+        <div class="stat"><div class="n">0<em>건</em></div><div class="l">전환 다운타임</div></div>
+        <div class="stat"><div class="n">RAG</div><div class="l">의료 통역 LLM</div></div>
+      </div>
+      <div class="foot">
+        <span>Go / Python / Rust / AWS / GCP</span>
+        <span class="url">minkihan.github.io</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
