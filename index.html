@@ -6,7 +6,7 @@
 <title>한민기 | Backend Engineer</title>
 <meta name="description" content="12년차 백엔드 엔지니어 한민기. SI 프레임워크 설계에서 AI SaaS 백엔드 아키텍트로. 폴리글랏 풀사이클, Go, Python, Rust, AWS, GCP.">
 <meta property="og:title" content="한민기 | Backend Engineer">
-<meta property="og:description" content="12년차 백엔드 엔지니어. 앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시한 폴리글랏 풀사이클 엔지니어.">
+<meta property="og:description" content="12년차 백엔드 엔지니어. 앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 맡아 출시해 온 폴리글랏 풀사이클 엔지니어.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://minkihan.github.io/">
 <meta property="og:image" content="https://minkihan.github.io/og-image.png">
@@ -215,10 +215,10 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
     <div class="prompt-line mono"><span class="u">minkihan</span><span class="p">@dev</span>:~$ <span class="cmd">whoami</span></div>
     <h1>한민기</h1>
     <div class="role mono">12년차 백엔드 엔지니어 <span class="amb">|</span> 폴리글랏 풀사이클</div>
-    <p class="sr-only">앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시합니다. 한 명의 엔지니어가 팀에 가까운 폭과 속도로 일합니다.</p>
+    <p class="sr-only">앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시합니다. 한 사람이 그 전 구간을 맡아 끝까지 끌고 갑니다.</p>
     <div class="typed mono" id="typed" aria-hidden="true"><span class="g">&gt;</span> <span id="typed-text"></span><span class="cur"></span></div>
     <div class="hero-meta mono">
-      <span><span class="k">career:</span> 12 yrs 4 mo</span>
+      <span><span class="k">career:</span> 12 yrs 6 mo</span>
       <span><span class="k">from:</span> SI 프레임워크 설계에서 AI SaaS 아키텍트로</span>
       <a href="https://github.com/minkihan" target="_blank" rel="noopener"><span class="k">git:</span> github.com/minkihan</a>
     </div>
@@ -255,11 +255,11 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
 
     <!-- 1. 더빙 SaaS -->
     <article class="proj">
-      <div class="bar mono"><span class="f">ai-dubbing-saas/</span><span class="yr">2024.11 ~ 2026.05</span></div>
+      <div class="bar mono"><span class="f">ai-dubbing-saas/</span><span class="yr">2024.11 ~ 현재</span></div>
       <div class="body">
         <span class="flag">FLAGSHIP</span>
         <h3>AI 더빙 SaaS 백엔드 / 인프라 1인 설계 및 운영</h3>
-        <p class="lead">Python(FastAPI), Rust 서버리스, Python GPU 워커 3개 언어 스택이 동시에 도는 서비스를, 다운타임 없이 Go 단일 스택으로 통합. 아키텍처부터 GPU 운영, 비용, 결제, 보안까지 백엔드 전 영역을 1인이 책임.</p>
+        <p class="lead">Python(FastAPI), Rust 서버리스, Python GPU 워커로 갈린 언어 스택이 동시에 도는 서비스를, 다운타임 없이 Go 단일 스택으로 통합. 아키텍처부터 GPU 운영, 비용, 결제, 보안까지 백엔드 전 영역을 1인이 책임.</p>
 
         <div class="diagram dense">
           <svg viewBox="0 0 840 402" role="img" aria-label="비동기 작업 분산, GPU Lease, 자가치유를 포함한 더빙 파이프라인 다이어그램">
@@ -304,22 +304,19 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
         </div>
 
         <ul>
-          <li>백엔드 <b>V1~V5 아키텍처</b>를 설계, 구현, 운영 (5단계 메이저 전환, 무중단 전환 아키텍처로 전 구간 서비스 중단 0건)</li>
-          <li>Python 백엔드, Python GPU 워커, Rust 서버리스 3개 스택을 Go 단일 스택으로 통합 (<b>Strangler Fig 패턴 + ALB 경로 분기</b> 무중단 마이그레이션)</li>
-          <li>RabbitMQ 기반 데몬/에이전트 3-tier 구조를 <b>Redis 큐(BLMOVE) 단일 워커로 대체</b>해 인프라 단순화</li>
-          <li>클라우드 8대 + 온프레미스 3대 <b>총 11대 이기종 GPU</b>에 추론을 동적 분배 (Redis keyspace busy gate + 점유권 lease)</li>
+          <li>백엔드 아키텍처를 여러 세대에 걸쳐 설계, 구현, 운영 (<b>메이저 전환을 서비스 중단 없이</b> 넘기는 구조)</li>
+          <li>Python 백엔드, Python GPU 워커, Rust 서버리스로 갈린 언어 스택을 Go 하나로 통합 (<b>Strangler Fig 패턴 + ALB 경로 분기</b> 무중단 마이그레이션)</li>
+          <li>RabbitMQ 기반 데몬과 에이전트로 나뉜 다단 구조를 <b>Redis 큐(BLMOVE) 단일 워커로 대체</b>해 인프라 단순화</li>
+          <li>클라우드와 온프레미스에 걸친 <b>이기종 GPU에 추론을 동적 분배</b> (Redis keyspace busy gate + 점유권 lease)</li>
           <li>GPU 정체를 감지하면 SSH 접속, 로그 수집, 컨테이너 재시작까지 하는 <b>자가치유 체계</b> 구축</li>
-          <li>CDN 전송량 폭증을 감지해 CloudFront를 Cloudflare Workers/R2로 전환, <b>CDN 전송 비용 약 53% 절감</b></li>
-          <li>타 사용자 리소스 접근을 차단하는 <b>IDOR 검증을 핸들러 25곳에 적용</b>, 시크릿 저장소 3계층 재설계(9개 프로젝트 일괄), JWT 키 로테이션 Redis 이전 + 무재기동 Hot Reload</li>
-          <li>Stripe 구독 결제 운영 중 <b>80만 크레딧 과대 집계</b> 정합성 오류를 선제 발견, API, 정산 워커, DB 3곳 동시 수정</li>
+          <li>CDN 전송량 폭증을 감지해 CloudFront를 Cloudflare Workers/R2로 전환, <b>CDN 전송 비용 절감</b></li>
+          <li>타 사용자 리소스 접근을 차단하는 <b>IDOR 검증을 전 핸들러에 적용</b>, 시크릿 저장소를 여러 계층으로 재설계해 전 프로젝트에 일괄 반영, JWT 키 로테이션 Redis 이전 + 무재기동 Hot Reload</li>
+          <li>Stripe 구독 결제와 크레딧 시스템 운영, 환불과 크레딧 차감 사이의 <b>정합성 오류를 API 서버와 정산 워커, 데이터 보정까지 함께 수정</b></li>
+          <li>잡 큐를 <b>Redis Streams로 전환</b>해 워커 장애 시 작업 유실과 중복 처리를 제거</li>
+          <li>스피커별 트랙 AAF, 개별 대사 BWF 등 <b>방송용 편집 포맷 익스포트</b> 구현, 대용량 처리는 워커 큐로 이관하고 진행률과 실패 사유를 화면까지 전달</li>
+          <li>다국어 자막 수신과 SRT/VTT 다운로드 구현, 더빙과 자막의 <b>지원 언어 목록을 분리</b>해 음성 합성이 없는 언어가 더빙에 노출되던 문제 해소</li>
+          <li>관리자 웹을 <b>사용량 정산, 스태프 관리, CS 도구</b>로 확장</li>
         </ul>
-        <div class="metrics">
-          <span class="metric">이미지 500MB에서 9MB로 (약 55배 축소)</span>
-          <span class="metric">Rust 서버리스 4종 Go 내재화, 처리 6.9배</span>
-          <span class="metric">Export 최대 39초 단축, save-draft 논블로킹 전환</span>
-          <span class="metric">11주 214건 빌드 / 137작업 단위</span>
-          <span class="metric">다운타임 0건</span>
-        </div>
         <div class="stackline mono"><span class="k">stack</span> Go, Python, Rust, FastAPI, MongoDB(Replica Set/Change Streams), Redis, Stripe, AWS(Lambda/S3/ALB/ECR/SSM), Cloudflare(Workers/R2), Docker, GitHub Actions OIDC, ffmpeg</div>
       </div>
     </article>
@@ -371,12 +368,11 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>용어를 언어에 묶지 않는 <b>'개념(concept)' 단위로 재설계</b>, 브랜드 표기가 흔들리거나(울쎄라/울세라) 발음이 뭉개져도 교정</li>
           <li>LLM 출력의 <b>수량, 용량 숫자 누락과 과축약을 검증</b>해 의료 안전을 확보 (incomplete 휴리스틱)</li>
           <li>수기 라이선스 전달로 병원 공유 IP가 잠기는 사고 이후, <b>인앱 자동 발급으로 사람의 필사라는 근본 원인 제거</b></li>
+          <li>용어 수집 경로를 병원 사이트 대조 마이닝에서 <b>LLM 교차번역으로 일원화</b>하고 번역 엔진을 별도 모듈로 분리</li>
+          <li>중국어, 일본어 <b>네이티브 검수 결과를 반영</b>하는 체계 도입, 검수 웹에 언어별 탭과 발화 피드백 경로 신설</li>
+          <li>마이크 입력 음량 게이트를 도입해 <b>저음량 구간에서 음성인식이 없는 말을 지어내던 문제를 차단</b>, 이후 마이크 진단과 관측 체계 구축</li>
+          <li>푸시투토크 응답을 스트리밍해 <b>말하는 도중 번역 자막이 실시간으로 채워지도록</b> 개선</li>
         </ul>
-        <div class="metrics">
-          <span class="metric">Android / iOS 양대 스토어 상용 배포</span>
-          <span class="metric">다국어 20여 종 지원</span>
-          <span class="metric">라이선스 발급 ~ 반납 무인 운영</span>
-        </div>
         <div class="stackline mono"><span class="k">stack</span> Go(Cobra), Flutter/Dart, PostgreSQL(pgvector), GCP(Cloud SQL/Cloud Run/Vertex AI/Cloud Translation), Gemini, RAG/임베딩 검색, STT, fastlane, Docker</div>
       </div>
     </article>
@@ -425,10 +421,6 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>데몬 폴링, GPU 처리, 결과 반환의 비동기 구조 정립 (MongoDB 작업 큐 + Redis PubSub + S3)</li>
           <li>이 STT, 타임싱크 파이프라인을 일반 영상 더빙으로 확장, <b>별도 프로젝트로 분리되어 더빙 SaaS의 출발점</b>이 됨</li>
         </ul>
-        <div class="metrics">
-          <span class="metric">Google Play / App Store 정상 배포, 다년 운영</span>
-          <span class="metric">더빙 SaaS 초기 버전의 기술 자산 원천</span>
-        </div>
         <div class="stackline mono"><span class="k">stack</span> Python, FastAPI, MongoDB, Redis(PubSub), AWS S3, Docker, ffmpeg</div>
       </div>
     </article>
@@ -438,7 +430,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="bar mono"><span class="f">ytsub/</span><span class="yr">2026.02 ~ 2026.05</span></div>
       <div class="body">
         <h3>ytsub: 유튜브 자동 자막 생성 풀스택 서비스</h3>
-        <p class="lead">더빙 서비스의 자막 파이프라인을 독립 서비스로 검증. 기존 GPU API와 오디오 인프라를 재활용해 신규 비용 없이 프론트, 백엔드, 인프라 전체를 단기간에 구축한 무비용 파생 서비스.</p>
+        <p class="lead">더빙 서비스의 자막 파이프라인을 독립 서비스로 검증. 기존 GPU API와 오디오 인프라를 재활용해 추가 비용 없이 프론트, 백엔드, 인프라 전체를 단기간에 구축한 무비용 파생 서비스.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 236" role="img" aria-label="인프라 재활용 기반 유튜브 자막 생성 풀스택 파이프라인 다이어그램">
@@ -459,62 +451,59 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
             <text class="xs dim" x="420" y="185">기존 더빙 서비스의 GPU API, 오디오 추출 엔드포인트 재활용해 신규 인프라 비용 0</text>
             <text class="xs dim" x="420" y="201">저장 없이 원본 영상 위 CSS 오버레이로 서빙해 스토리지 비용 최소화, Cloudflare WAF/CDN 보호</text>
           </svg>
-          <div class="cap">// 이미 있는 GPU와 오디오 인프라를 그대로 재활용해 신규 비용 0으로 풀스택 서비스를 세웠다</div>
+          <div class="cap">// 이미 있는 GPU와 오디오 인프라를 그대로 재활용해 추가 비용 없이 풀스택 서비스를 세웠다</div>
         </div>
 
         <ul>
           <li>Go + html/template + <b>htmx 기반 SSR</b>로 구성 (별도 SPA 없이 운영 단순성 유지)</li>
           <li>Groq Whisper 전사 + 에러 분류 파이프라인 통합 (word timestamps)</li>
-          <li>기존 더빙 서비스의 GPU API와 오디오 추출 엔드포인트를 재활용해 <b>신규 인프라 비용 0</b></li>
+          <li>기존 더빙 서비스의 GPU API와 오디오 추출 엔드포인트를 재활용해 <b>신규 인프라 없이 구축</b></li>
           <li>SSE 실시간 진행 중계, Cloudflare WAF 커스텀 룰, CDN 캐싱, Redis 키 컨벤션 정비</li>
         </ul>
-        <div class="metrics">
-          <span class="metric">ytsub.stra.ai 정상 운영</span>
-          <span class="metric">인프라 재활용 launch 패턴 정립</span>
-        </div>
         <div class="stackline mono"><span class="k">stack</span> Go, MongoDB, Redis, AWS, Cloudflare Workers/WAF, Groq Whisper, html/template, htmx, SSE, Docker</div>
       </div>
     </article>
 
     <p class="sub-label mono">Engineering Tools</p>
 
-    <!-- 5. book CLI -->
+    <!-- 5. go3 -->
     <article class="proj">
-      <div class="bar mono"><span class="f">book-cli/</span><span class="yr">2025.12 ~ 2026.05</span></div>
+      <div class="bar mono"><span class="f">go3/</span><span class="yr">2025.12 ~ 현재</span></div>
       <div class="body">
-        <h3>book: LLM 컨텍스트 플랜 매니저 CLI</h3>
-        <p class="lead">LLM을 개발 파트너로 쓸 때 과거 작업 이력을 매번 수동 주입해야 하는 비효율을, 운영 부담 없는 경량 인덱스로 해결. 벡터DB 없이 SQLite만으로 수년치 작업 문서를 LLM이 즉시 참조하게 만든 자체 도구.</p>
+        <h3>go3: 개발 파이프라인과 지식 저장소</h3>
+        <p class="lead">book CLI에서 출발한 LLM 작업 도구를 재설계. 앞선 도구는 과거 작업을 색인해 주입하는 데 머물렀고, 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했다. 해석은 매번 달라지고 틀려도 조용히 통과하기 때문에, 절차 자체를 코드로 고정한 자체 파이프라인.</p>
 
         <div class="diagram">
-          <svg viewBox="0 0 840 224" role="img" aria-label="작업 문서를 색인해 LLM 컨텍스트에 자동 주입하고 결과가 다시 순환하는 다이어그램">
-            <rect class="bx" x="20" y="40" width="150" height="46" rx="7"/><text class="sm" x="95" y="57">작업 문서 243개</text><text class="xs dim" x="95" y="73">plans/*.md</text>
-            <path class="fl" d="M170,63 L200,63"/>
-            <rect class="bxg" x="202" y="40" width="196" height="46" rx="7"/><text class="num" x="220" y="63">1</text><text class="sm g" x="305" y="57">SQLite FTS5 인덱스</text><text class="xs dim" x="305" y="73">한국어 토큰화 + 5축 태그</text>
-            <path class="fl" d="M398,63 L428,63"/>
-            <rect class="bx" x="430" y="40" width="176" height="46" rx="7"/><text class="num" x="447" y="63">2</text><text class="sm" x="522" y="57">book 쿼리</text><text class="xs dim" x="522" y="73">search / list / show</text>
-            <path class="fl" d="M606,63 L636,63"/>
-            <rect class="bxa" x="638" y="40" width="182" height="46" rx="7"/><text class="num" x="655" y="63">3</text><text class="sm a" x="736" y="57">LLM 컨텍스트</text><text class="xs dim" x="736" y="73">관련 과거작업 자동 주입</text>
-            <!-- loop back -->
-            <path class="fld" d="M729,86 L729,150 L95,150 L95,88"/>
-            <text class="xs dim" x="412" y="166">4  작업 결과가 새 플랜 문서로 저장되어 다시 인덱스로 (순환)</text>
-            <!-- multimodel note -->
-            <rect class="grp" x="20" y="182" width="800" height="30" rx="8"/>
-            <text class="xs dim" x="420" y="198">설계 단계 멀티모델 교차 검토(Claude, Gemini, GPT 상호 검증)를 워크플로우로 상시 적용</text>
+          <svg viewBox="0 0 840 224" role="img" aria-label="플랜 수립부터 배포까지 단계가 이어지고 단계 사이마다 게이트가 조건을 검사하며 지식 저장소가 각 단계에 규칙을 주입하는 다이어그램">
+            <rect class="bx" x="20" y="40" width="140" height="46" rx="7"/><text class="sm" x="90" y="57">플랜 수립</text><text class="xs dim" x="90" y="73">범위와 항목 정의</text>
+            <path class="fl" d="M160,63 L185,63"/><text class="xs dim" x="172" y="33">gate</text>
+            <rect class="bxa" x="185" y="40" width="140" height="46" rx="7"/><text class="sm a" x="255" y="57">사람 승인</text><text class="xs dim" x="255" y="73">웹에서 결정</text>
+            <path class="fl" d="M325,63 L350,63"/><text class="xs dim" x="337" y="33">gate</text>
+            <rect class="bx" x="350" y="40" width="140" height="46" rx="7"/><text class="sm" x="420" y="57">구현</text><text class="xs dim" x="420" y="73">항목별 게이트</text>
+            <path class="fl" d="M490,63 L515,63"/><text class="xs dim" x="502" y="33">gate</text>
+            <rect class="bx" x="515" y="40" width="140" height="46" rx="7"/><text class="sm" x="585" y="57">시험</text><text class="xs dim" x="585" y="73">변조로 역검증</text>
+            <path class="fl" d="M655,63 L680,63"/><text class="xs dim" x="667" y="33">gate</text>
+            <rect class="bxg" x="680" y="40" width="140" height="46" rx="7"/><text class="sm g" x="750" y="57">배포, 리포트</text><text class="xs dim" x="750" y="73">문서까지 한 흐름</text>
+            <!-- 지식 저장소에서 각 단계로 주입 -->
+            <path class="fld" d="M90,150 L90,88"/>
+            <path class="fld" d="M420,150 L420,88"/>
+            <path class="fld" d="M750,150 L750,88"/>
+            <rect class="grp" x="20" y="152" width="800" height="44" rx="8"/>
+            <text class="sm" x="420" y="172">지식 저장소</text>
+            <text class="xs dim" x="420" y="188">단계마다 필요한 규칙과 과거 결정을 자동으로 올려 보낸다</text>
           </svg>
-          <div class="cap">// 작업 문서를 FTS5로 색인해 LLM이 과거 결정을 알고 일하게 하고, 그 결과가 다시 색인으로 순환한다</div>
+          <div class="cap">// 단계마다 게이트가 실제 명령을 돌려 판정하고, 통과하지 못하면 다음 단계로 가지 못한다</div>
         </div>
 
         <ul>
-          <li>Go(Cobra)로 자체 설계, <b>SQLite FTS5 전문 검색</b>으로 243개 작업 문서 인덱싱 (한국어 토큰화)</li>
-          <li>5축 태그 체계(type / area / tech / scope / series)로 메타데이터 쿼리 지원</li>
-          <li>신규 작업 시작 시 관련 과거 작업과 결정을 <b>LLM 컨텍스트에 자동 주입</b></li>
-          <li>설계 단계에 <b>멀티모델 교차 검토</b>(Claude, Gemini, GPT 상호 검증)를 상시 적용하는 워크플로우를 도구화</li>
+          <li>플랜 수립, 승인, 설계, 구현, 시험, 배포, 문서화, 리포트까지 <b>단계별 파이프라인을 Go로 자체 설계</b></li>
+          <li>단계마다 통과 조건을 코드로 고정, <b>게이트가 실제 명령을 실행해 판정</b>하고 조건을 채우지 못하면 다음 단계 진입을 차단</li>
+          <li>모든 명령이 <b>JSON 봉투 한 줄과 다음에 실행할 명령 목록</b>을 반환하는 계약으로 통일해, LLM이 절차를 추측하지 않고 지시받은 명령만 실행</li>
+          <li><b>지식 저장소 자체 구현</b>: 추가 전용 개정 이력, 별칭 기반 경로 이동, 갈래별 본문 계약 검증, 저장 경계에서 품질 하락만 선별 차단</li>
+          <li>런마다 <b>git 워크트리를 분리</b>해 동시 작업 간 간섭을 막고, 서브에이전트를 병렬로 실행</li>
+          <li>외부 LLM 교차 검토를 파이프라인 단계로 내재화, <b>게이트가 실제로 검사하는지 역으로 확인하는 변조 테스트</b>를 도입해 재는 것 없이 통과하던 게이트를 적발</li>
         </ul>
-        <div class="metrics">
-          <span class="metric">벡터DB 대비 운영 비용 0에 근접</span>
-          <span class="metric">github.com/minkihan/book (공개)</span>
-        </div>
-        <div class="stackline mono"><span class="k">stack</span> Go, SQLite(FTS5), Cobra, Shell, Claude Code MCP</div>
+        <div class="stackline mono"><span class="k">stack</span> Go, SQLite, Cobra, SSE, Git worktree, Claude Code, Codex</div>
       </div>
     </article>
 
@@ -523,7 +512,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="bar mono"><span class="f">tails/</span><span class="yr">2025.12 ~ 2026.05</span></div>
       <div class="body">
         <h3>tails: Rust 네이티브 GUI 실시간 로그 뷰어</h3>
-        <p class="lead">클라우드와 온프레미스에 흩어진 서버 10여 대의 로그를 SSH 터미널로 개별 확인하던 비효율을 네이티브 데스크톱 앱으로 해결. macOS 코드서명, 공증, 자동업데이트 배포 파이프라인까지 자체 개발.</p>
+        <p class="lead">클라우드와 온프레미스에 흩어진 여러 대의 서버 로그를 SSH 터미널로 개별 확인하던 비효율을 네이티브 데스크톱 앱으로 해결. macOS 코드서명, 공증, 자동업데이트 배포 파이프라인까지 자체 개발.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 250" role="img" aria-label="멀티서버 로그 팬인과 macOS 서명 공증 자동배포 파이프라인 다이어그램">
@@ -538,7 +527,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
             <!-- divider -->
             <line x1="340" y1="24" x2="340" y2="140" stroke="#26364a" stroke-dasharray="3 3"/>
             <!-- Part B: deploy pipeline -->
-            <text class="xs dim" x="590" y="20">배포 파이프라인 (명령 1회)</text>
+            <text class="xs dim" x="590" y="20">배포 파이프라인 (명령 한 번)</text>
             <rect class="bx" x="372" y="46" width="104" height="40" rx="7"/><text class="xs" x="424" y="66">cargo build</text>
             <path class="fl" d="M476,66 L500,66"/>
             <rect class="bx" x="502" y="46" width="96" height="40" rx="7"/><text class="xs" x="550" y="66">codesign</text>
@@ -558,11 +547,10 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
 
         <ul>
           <li>Rust(egui) 네이티브 GUI로 <b>멀티 서버 실시간 로그 스트리밍 뷰어</b> 자체 개발</li>
-          <li>cargo 빌드, 코드서명, 공증, S3 업로드까지 <b>명령 1회로 끝나는 macOS 배포 파이프라인</b> 구축</li>
+          <li>cargo 빌드, 코드서명, 공증, S3 업로드까지 <b>명령 한 번으로 끝나는 macOS 배포 파이프라인</b> 구축</li>
           <li>순수 Rust SSH(russh)로 C 바인딩을 전면 회피, <b>Gatekeeper 차단을 공증 체계로 해결</b></li>
           <li>S3 기반 자동 업데이트로 팀원 기기에 새 버전 원자적 반영 (SHA256 검증)</li>
         </ul>
-        <div class="metrics"><span class="metric">웹, 백엔드를 넘어 네이티브 앱과 OS 배포 체계까지</span></div>
         <div class="stackline mono"><span class="k">stack</span> Rust, egui, russh, rustls, SSH, AWS S3, macOS codesign/notarytool</div>
       </div>
     </article>
@@ -572,12 +560,12 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="bar mono"><span class="f">tooling-ecosystem/</span><span class="yr">2024.11 ~ 2026.05</span></div>
       <div class="body">
         <h3>운영 자동화 도구 생태계 (CLI / TUI / Worker)</h3>
-        <p class="lead">다수 서비스와 GPU 11대, 13개 Go 프로젝트를 1인이 운영하는 조건에서, 반복 운영 작업을 도구로 흡수해 1인 다중 서비스 운영을 성립시킴.</p>
+        <p class="lead">다수의 서비스와 GPU, 여러 Go 프로젝트를 1인이 운영하는 조건에서, 반복 운영 작업을 도구로 흡수해 1인 다중 서비스 운영을 성립시킴.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 260" role="img" aria-label="1인 운영자가 자체 도구 계층을 통해 서비스와 인프라를 운영하는 토폴로지 다이어그램">
             <!-- operator -->
-            <rect class="bxg" x="20" y="96" width="120" height="60" rx="8"/><text class="sm g" x="80" y="118">운영자 1인</text><text class="xs dim" x="80" y="134">book + 스킬</text>
+            <rect class="bxg" x="20" y="96" width="120" height="60" rx="8"/><text class="sm g" x="80" y="118">운영자 1인</text><text class="xs dim" x="80" y="134">go3 + 스킬</text>
             <!-- tools tier -->
             <text class="xs dim" x="288" y="24">자체 도구 계층</text>
             <rect class="bx" x="200" y="30" width="176" height="30" rx="6"/><text class="xs" x="288" y="45">vmctl</text>
@@ -606,9 +594,9 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
             <path class="fla" d="M376,189 L496,189"/>
             <!-- note -->
             <rect class="grp" x="20" y="222" width="800" height="30" rx="8"/>
-            <text class="xs dim" x="420" y="238">13개 Go 프로젝트 버전을 단일 파일로 일괄 관리, 각 도구가 실제 장애 대응, 배포, 비용 절감 흐름에 상시 사용</text>
+            <text class="xs dim" x="420" y="238">여러 Go 프로젝트의 버전을 단일 파일로 일괄 관리, 각 도구가 실제 장애 대응, 배포, 비용 절감 흐름에 상시 사용</text>
           </svg>
-          <div class="cap">// 반복 운영 작업을 도구 계층으로 흡수해, 한 사람이 다수 서비스와 GPU 11대를 감당하게 만들었다</div>
+          <div class="cap">// 반복 운영 작업을 도구 계층으로 흡수해, 한 사람이 다수의 서비스와 GPU를 감당하게 만들었다</div>
         </div>
 
         <ul>
@@ -617,7 +605,6 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li><b>stra-cli</b> 배포, 모니터링, 운영 작업을 모은 서비스 운영 TUI</li>
           <li>13개 Go 프로젝트 버전을 단일 파일로 <b>일괄 관리하는 체계</b> 정비</li>
         </ul>
-        <div class="metrics"><span class="metric">각 도구가 실제 장애 대응, 배포, 비용 절감에 상시 사용</span></div>
         <div class="stackline mono"><span class="k">stack</span> Go(Bubble Tea/Cobra), Rust, JavaScript(Cloudflare Workers), AWS, GCP, ffmpeg</div>
       </div>
     </article>
@@ -654,17 +641,6 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
     </div>
   </section>
 
-  <!-- IMPACT -->
-  <section class="reveal">
-    <h2 class="sec-head mono"><span aria-hidden="true"><span class="p">$</span> cat <b>impact.txt</b></span><span class="sr-only">성과 지표</span></h2>
-    <div class="banner">
-      <div class="b"><div class="n">55<span class="u">×</span></div><div class="l">컨테이너 이미지 축소<br>500MB에서 9MB로</div></div>
-      <div class="b"><div class="n">6.9<span class="u">×</span></div><div class="l">서버리스 4종 Go 내재화<br>처리 속도 개선</div></div>
-      <div class="b"><div class="n">53<span class="u">%</span></div><div class="l">CDN 전송 비용<br>절감</div></div>
-      <div class="b"><div class="n">11<span class="u">대</span></div><div class="l">이기종 GPU<br>동적 로드밸런싱</div></div>
-      <div class="b"><div class="n">0<span class="u">건</span></div><div class="l">5단계 메이저 전환<br>다운타임</div></div>
-    </div>
-  </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact reveal">
@@ -690,7 +666,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var lines=[
     '앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시합니다.',
-    '한 명의 엔지니어가 팀에 가까운 폭과 속도로 일합니다.'
+    '한 사람이 그 전 구간을 맡아 끝까지 끌고 갑니다.'
   ];
   if(reduce){textEl.textContent=lines[0];return;}
   var li=0,ci=0,deleting=false;
