@@ -240,8 +240,8 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
     <h2 class="sec-head mono"><span aria-hidden="true"><span class="p">$</span> ls <b>skills/</b><span class="cm"> --group</span></span><span class="sr-only">기술 스택</span></h2>
     <div class="stack">
       <div class="row"><h3>Languages</h3><div class="tags"><span class="tag hi">Go</span><span class="tag hi">TypeScript</span><span class="tag hi">Python</span><span class="tag">Java</span><span class="tag">Rust</span><span class="tag">Dart / Flutter</span><span class="tag">Kotlin</span><span class="tag">Swift</span><span class="tag">JavaScript</span></div></div>
-      <div class="row"><h3>Backend / Web</h3><div class="tags"><span class="tag">Node.js / Express</span><span class="tag">Spring</span><span class="tag">FastAPI</span><span class="tag">net/http</span><span class="tag">Cobra</span><span class="tag">Bubble Tea</span><span class="tag">htmx</span><span class="tag">Alpine.js</span><span class="tag">SSE</span></div></div>
-      <div class="row"><h3>Cloud / Infra</h3><div class="tags"><span class="tag hi">AWS</span><span class="tag hi">GCP</span><span class="tag">Cloudflare</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div></div>
+      <div class="row"><h3>Backend / Web</h3><div class="tags"><span class="tag">Node.js / Express</span><span class="tag">Spring</span><span class="tag">FastAPI</span><span class="tag">Next.js / React</span><span class="tag">net/http</span><span class="tag">Cobra</span><span class="tag">Bubble Tea</span><span class="tag">htmx</span><span class="tag">Alpine.js</span><span class="tag">SSE</span></div></div>
+      <div class="row"><h3>Cloud / Infra</h3><div class="tags"><span class="tag hi">AWS</span><span class="tag hi">GCP</span><span class="tag">Cloudflare</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Terraform</span><span class="tag">Cloud Run</span></div></div>
       <div class="row"><h3>Data / Store</h3><div class="tags"><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Redis</span><span class="tag">SQLite</span><span class="tag">Oracle</span></div></div>
       <div class="row"><h3>AI / LLM</h3><div class="tags"><span class="tag hi">LLM 파이프라인</span><span class="tag hi">RAG</span><span class="tag">임베딩 검색</span><span class="tag">bge-m3</span><span class="tag">bge-reranker-v2-m3</span><span class="tag">llama.cpp</span><span class="tag">Ollama</span><span class="tag">Claude Code</span><span class="tag">STT</span><span class="tag">Gemini</span><span class="tag">Groq</span><span class="tag">OpenAI</span></div></div>
       <div class="row"><h3>Media / Etc</h3><div class="tags"><span class="tag">ffmpeg</span><span class="tag">Stripe</span><span class="tag">egui</span><span class="tag">MCP</span></div></div>
@@ -262,7 +262,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
         <span class="flag">FLAGSHIP</span>
         <h3>go3: LLM 개발 파이프라인 (웹 UI, 시리얼 런, 로컬 지식 검색)</h3>
         <p class="lead">LLM과 함께 일할 때 과거 작업을 색인해 주입하는 것만으로는 부족했다. 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했고, 해석은 매번 달라지며 틀려도 조용히 통과했다. Claude Code 스킬 문서로 절차를 지시하던 /go와 이를 가볍게 줄인 /go2를 거쳤지만 문서는 세션마다 다시 해석되었고, 그래서 2026년 9월 절차 자체를 코드로 고정한 go3로 다시 설계했다.</p>
-        <p class="lead">낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
+        <p class="lead">Claude Code 위에 만든 개발 파이프라인이자 에이전트 하네스다. 낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 224" role="img" aria-label="플랜 수립부터 배포까지 단계가 이어지고 단계 사이마다 게이트가 조건을 검사하며 지식 저장소가 각 단계에 규칙을 주입하는 다이어그램">
@@ -293,6 +293,8 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
         <ul>
           <li><b>단계 게이트</b>: 플랜 수립, 승인, 설계, 구현, 시험, 배포, 문서화, 리포트를 단계로 나누고, 게이트가 실제 명령을 실행해 판정해 조건을 채우지 못하면 다음 단계 진입을 차단</li>
           <li><b>명령 계약</b>: 모든 명령이 JSON 봉투 한 줄과 다음에 실행할 명령 목록을 반환하도록 통일해, LLM이 절차를 추측하지 않고 지시받은 명령만 실행</li>
+          <li><b>플러그인 hook</b>: Claude Code 플러그인의 hook과 스킬로 세션 규칙을 싣고, 금지된 도구 호출은 사유와 대체 명령을 붙여 거부</li>
+          <li><b>MCP 서버</b>: 외부 LLM(GPT, Gemini)에 두 번째 의견을 묻는 도구와 헤드리스 브라우저 도구를 Claude Code에 내주는 MCP 서버를 Go 표준 라이브러리만으로 구현</li>
           <li><b>구현 위임</b>: 런마다 git 워크트리를 분리해 동시 작업 간 간섭을 막고, 구현은 항목마다 새 컨텍스트의 서브에이전트에 맡긴 뒤 메인 세션이 보고를 게이트 결과와 대조</li>
           <li><b>구현 품질</b>: 게이트는 문자열의 존재가 아니라 동작을 재고, 지키려는 코드를 일부러 망가뜨려 게이트가 실제로 실패하는지 변조 테스트로 확인. 이름이 틀린 시험이 0건 실행되고도 통과하던 사례를 겪은 뒤 시험 이름과 PASS 줄을 확인하고, 판정에 "몇 건을 보았나"를 넣어 빈 측정이 통과로 읽히지 않게 고정</li>
           <li><b>검토</b>: 설계 단계와 구현 뒤 시험 단계에 외부 LLM 검토를 한 차례씩 두고, 나온 지적은 같은 런 안에서 고치거나 사유를 남겨 닫음. 검색 순위처럼 잴 수 있는 변경은 질문 묶음으로 수용 시험을 만들어 기준선보다 떨어지면 실패</li>
@@ -307,7 +309,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li><b>로컬 리랭커</b>: 공식 가중치를 GGUF로 변환한 bge-reranker-v2-m3를 llama.cpp 서버로 띄워 상위 후보를 다시 정렬하고, 장애 때는 기존 순위로 내려가게 설계. 설치 때 모델 파일과 실행본의 sha256을 승인 목록과 대조하고, 지식이 밖으로 나가는 외부 리랭커 API는 기각</li>
         </ul>
         <div class="stackline mono"><span class="k">scale</span> 2026.09 재설계 이후 두 달, Go 약 11만 줄(시험 코드 약 11만 줄 별도), 패키지 34개, 최상위 명령 39개, 커밋 1,200여 건, /go와 /go2 시절을 포함해 처리한 플랜 1,000여 건</div>
-        <div class="stackline mono"><span class="k">stack</span> Go, SQLite, Cobra, Alpine.js, SSE, launchd, Ollama(bge-m3), llama.cpp(bge-reranker-v2-m3), Git worktree, Claude Code</div>
+        <div class="stackline mono"><span class="k">stack</span> Go, SQLite, Cobra, Alpine.js, SSE, launchd, Ollama(bge-m3), llama.cpp(bge-reranker-v2-m3), Git worktree, Claude Code, MCP</div>
       </div>
     </article>
 
@@ -319,7 +321,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="body">
         <span class="flag">stra.ai 주력 제품</span>
         <h3>AI 더빙 SaaS 백엔드 / 인프라 1인 설계 및 운영</h3>
-        <p class="lead">Python(FastAPI), Rust 서버리스, Python GPU 워커로 갈린 언어 스택이 동시에 도는 서비스를, 다운타임 없이 Go 단일 스택으로 통합. 아키텍처부터 GPU 운영, 비용, 결제, 보안까지 백엔드 전 영역을 1인이 책임.</p>
+        <p class="lead">Python(FastAPI), Rust 서버리스, Python GPU 워커로 갈린 언어 스택이 동시에 도는 서비스를, 다운타임 없이 Go 단일 스택으로 통합. 아키텍처부터 GPU 운영, 비용, 결제, 보안까지 백엔드 전 영역을 1인이 책임했고, 2026년 7월부터는 Next.js 프런트엔드까지 맡음.</p>
 
         <div class="diagram dense">
           <svg viewBox="0 0 840 402" role="img" aria-label="비동기 작업 분산, GPU Lease, 자가치유를 포함한 더빙 파이프라인 다이어그램">
@@ -373,15 +375,18 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>RabbitMQ 기반 데몬과 에이전트로 나뉜 다단 구조를 <b>Redis 큐(BLMOVE) 단일 워커로 대체</b>해 인프라 단순화</li>
           <li>클라우드와 온프레미스에 걸친 <b>이기종 GPU에 추론을 동적 분배</b> (Redis keyspace busy gate + 점유권 lease)</li>
           <li>GPU 정체를 감지하면 SSH 접속, 로그 수집, 컨테이너 재시작까지 하는 <b>자가치유 체계</b> 구축</li>
+          <li>AI 엔지니어가 만든 <b>STT, TTS 모델 컨테이너를 잡 파이프라인과 GPU 서버에 통합</b>하고, VRAM 예산과 단계적 기동, 롤백 절차를 맞춰 배포</li>
+          <li>대학 B2B 계약을 계기로 <b>테넌트를 도메인 개념으로 도입</b>해, 테넌트마다 전용 GPU 풀과 과금 방식(사용량 차감, 계약)을 묶고 모든 차감과 환불을 같은 트랜잭션의 사용량 원장에 기록하며, 흩어져 있던 작업 발행 8곳을 라우터 하나로 모아 고객 온보딩을 설정 1건으로 줄임</li>
           <li>CDN 전송량 폭증을 감지해 CloudFront를 Cloudflare Workers/R2로 전환, <b>CDN 전송 비용 절감</b></li>
           <li>타 사용자 리소스 접근을 차단하는 <b>IDOR 검증을 전 핸들러에 적용</b>, 시크릿 저장소를 여러 계층으로 재설계해 전 프로젝트에 일괄 반영, JWT 키 로테이션 Redis 이전 + 무재기동 Hot Reload</li>
           <li>Stripe 구독 결제와 크레딧 시스템 운영, 환불과 크레딧 차감 사이의 <b>정합성 오류를 API 서버와 정산 워커, 데이터 보정까지 함께 수정</b></li>
           <li>잡 큐를 <b>Redis Streams로 전환</b>해 워커 장애 시 작업 유실과 중복 처리를 제거</li>
           <li>스피커별 트랙 AAF, 개별 대사 BWF 등 <b>방송용 편집 포맷 익스포트</b> 구현, 대용량 처리는 워커 큐로 이관하고 진행률과 실패 사유를 화면까지 전달</li>
           <li>다국어 자막 수신과 SRT/VTT 다운로드 구현, 더빙과 자막의 <b>지원 언어 목록을 분리</b>해 음성 합성이 없는 언어가 더빙에 노출되던 문제 해소</li>
+          <li>Next.js(React) 프런트엔드에서 더빙 편집기를 고치고, 진행 이벤트를 <b>타입 있는 SSE 계약과 단일 연결</b>로 다시 설계했으며, 프런트를 Vercel에서 EC2 자체 호스팅으로 이전</li>
           <li>관리자 웹을 <b>사용량 정산, 스태프 관리, CS 도구</b>로 확장</li>
         </ul>
-        <div class="stackline mono"><span class="k">stack</span> Go, Python, Rust, FastAPI, MongoDB(Replica Set/Change Streams), Redis, Stripe, AWS(Lambda/S3/ALB/ECR/SSM), Cloudflare(Workers/R2), Docker, GitHub Actions OIDC, ffmpeg</div>
+        <div class="stackline mono"><span class="k">stack</span> Go, Python, Rust, FastAPI, TypeScript(Next.js, React), SSE, MongoDB(Replica Set/Change Streams), Redis, RabbitMQ, Stripe, AWS(Lambda/S3/ALB/ECR/SSM), Cloudflare(Workers/R2), Docker, GitHub Actions OIDC, ffmpeg</div>
       </div>
     </article>
 
@@ -655,6 +660,25 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>13개 Go 프로젝트 버전을 단일 파일로 <b>일괄 관리하는 체계</b> 정비</li>
         </ul>
         <div class="stackline mono"><span class="k">stack</span> Go(Bubble Tea/Cobra), Rust, JavaScript(Cloudflare Workers), AWS, GCP, ffmpeg</div>
+      </div>
+    </article>
+
+    <div class="group-label mono" style="margin-top:40px"><span class="co">개인 프로젝트</span><span class="pd">2026.10 ~</span><span class="ln"></span><span>공개 준비 중</span></div>
+
+    <!-- 8. keywordlab -->
+    <article class="proj">
+      <div class="bar mono"><span class="f">keywordlab/</span><span class="yr">2026.10 ~ 현재</span></div>
+      <div class="body">
+        <h3>키워드연구소(keywordlab): 네이버 쇼핑 키워드 분석 구독 서비스</h3>
+        <p class="lead">네이버 쇼핑 인기 키워드를 후보로 수집해 분석하는 구독 서비스를 혼자 설계하고 GCP 위에 짓고 있다. 개발은 go3 파이프라인으로 한다.</p>
+        <ul>
+          <li>Go 단일 이미지를 <b>web, worker, admin 세 Cloud Run 서비스</b>로 띄우고, Firestore(MongoDB 호환)와 환경마다 Cloud Tasks 큐 셋(직접 분석, 정기 작업, 결제)으로 비동기 처리</li>
+          <li>Cloud Scheduler에는 15분 틱 하나만 두고, worker가 대상마다 다음 관측 시각과 남은 하루 예산을 보고 <b>할 일만 큐에 넣게</b> 설계</li>
+          <li>전역 외부 ALB 앞단에 Cloud Armor(IP당 속도 제한, 관리자 허용 IP)를 두고, staging은 IAP로, 관리자는 허용 IP와 패스키를 모두 통과하게 차단</li>
+          <li>GCP 자원과 Cloudflare DNS 규칙까지 <b>Terraform으로 선언</b>하고, 상태는 공용 루트와 환경별 루트로 나눠 GCS에 보관</li>
+          <li>staging에서 확인한 이미지 digest를 그대로 prod로 올리고, 롤백은 세 서비스의 트래픽을 함께 되돌리며, 운영 신호는 Cloud Monitoring에서 환경별 Slack 채널로 알림</li>
+        </ul>
+        <div class="stackline mono"><span class="k">stack</span> Go, htmx, GCP(Cloud Run, Firestore, Cloud Tasks, Cloud Scheduler, Cloud Armor, Cloud Monitoring), Terraform, Cloudflare</div>
       </div>
     </article>
   </section>
