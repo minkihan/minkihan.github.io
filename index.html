@@ -298,7 +298,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li><b>검토</b>: 설계 단계와 구현 뒤 시험 단계에 외부 LLM 검토를 한 차례씩 두고, 나온 지적은 같은 런 안에서 고치거나 사유를 남겨 닫음. 검색 순위처럼 잴 수 있는 변경은 질문 묶음으로 수용 시험을 만들어 기준선보다 떨어지면 실패</li>
           <li><b>웹 UI</b>: Go 서버와 Alpine.js로 만든 로컬 웹에서 플랜 목록 하나로 승인 대기와 진행 중인 런을 함께 보고 목록에서 바로 승인. 플랜 상세에서 쉬운 설명과 결과를 먼저 읽고 승인, 수정 요청, 거절을 결정하며, 진행 중인 런도 그 화면에서 멈춤 (SSE 실시간 갱신, 휴대폰 배치는 실제 Chrome으로 측정)</li>
           <li><b>접수</b>: 웹에 남긴 수정 요청과 새 플랜 요청을 무인 세션이 받아 다음 판 제안서로 발행</li>
-          <li><b>시리얼 런</b>: 주간에는 플랜 작성과 승인만 하고 야간 시간대를 구현에 쓰는 작업 방식. 승인된 플랜을 매일 저녁 번호와 선행 관계 순으로 줄 세워 플랜마다 새 세션에서 끝까지 구현하고, 마치면 통합 리포트를 Slack에 게시. 무인 세션에서는 사람을 부르지 않고 막히면 멈춤으로 닫으며, 토큰 사용량이 한도에 닿으면 멈췄다가 한도가 풀리면 이어서 실행</li>
+          <li><b>시리얼 런</b>: 주간에는 플랜 작성과 승인만 하고 야간 시간대를 구현에 쓰는 작업 방식. 승인된 플랜을 매일 저녁 번호와 선행 관계 순으로 줄 세워 플랜마다 새 세션에서 끝까지 구현하고, 마치면 통합 리포트를 Slack에 게시. 무인 세션에서는 사람을 부르지 않고 막히면 멈춤으로 닫으며, 저장소가 겹치는 런은 시작 단계에서 거부하고, 토큰 사용량이 한도에 닿으면 멈췄다가 한도가 풀리면 이어서 실행</li>
           <li><b>지식 저장소</b>: 플랜과 결정, 규칙을 SQLite 저장소 하나에 모으고, 추가 전용 개정 이력, 별칭 기반 경로 이동, 갈래별 본문 계약 검증, 저장 경계의 품질 하락 차단을 자체 구현</li>
           <li><b>무엇이 지식이 되나</b>: 런마다 리포트 단계에서 수확 후보를 뽑아, 이미 있는 내용, 그새 낡은 내용, 한 번뿐인 일, 기능 요청은 사유와 함께 기각하고, 지금도 참이며 다시 쓸 일이 있고 근거가 맞는 것만 승격</li>
           <li><b>저장 계약</b>: 결정, 사실, 절차 갈래마다 본문 계약을 두고, 사실은 관찰을, 절차는 실제로 돌린 결과를 근거로 요구하며, 근거 시점과 관련 개체를 함께 남김</li>
@@ -498,6 +498,22 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       </div>
     </article>
 
+    <!-- 3-1. coda -->
+    <article class="proj">
+      <div class="bar mono"><span class="f">coda, covr/</span><span class="yr">2021.10 ~ 2023.10</span></div>
+      <div class="body">
+        <h3>coda, covr: 음악 레슨 소셜 앱과 커버 영상 서비스 백엔드 (Node.js / TypeScript)</h3>
+        <p class="lead">음악 레슨 소셜 앱과 커버 영상 서비스의 백엔드를 Node.js와 TypeScript로 만들고, Azure Functions에 묶여 있던 인프라를 AWS로 전면 이전.</p>
+        <ul>
+          <li>소셜 피드, 레슨 마켓플레이스, 채팅, 실시간 통화 토큰 발급, 결제(토스페이먼츠, 구글 인앱결제 RTDN) <b>API 설계와 구현</b></li>
+          <li>PostgreSQL을 raw SQL 중심으로 운영하고 로그 집계는 PL/pgSQL로 DB 단에서 처리, 일부 서비스는 DynamoDB, 캐시는 Redis</li>
+          <li>VPC와 서브넷, NAT, S3 게이트웨이 엔드포인트, RDS, App Runner를 직접 설계해 <b>Azure에서 AWS로 전면 이전</b>하고, 미디어 인코딩을 MediaConvert로 대체</li>
+          <li>로컬 CLI 수동 배포를 <b>커밋 기반 자동 배포</b>로 바꾸고, 관리자 백엔드와 운영 자동화 봇 개발</li>
+        </ul>
+        <div class="stackline mono"><span class="k">stack</span> Node.js, TypeScript, Express, PostgreSQL, DynamoDB, Redis, AWS(App Runner, Lambda, RDS, S3, MediaConvert), WebSocket</div>
+      </div>
+    </article>
+
     <!-- 4. ytsub -->
     <article class="proj">
       <div class="bar mono"><span class="f">ytsub/</span><span class="yr">2026.02 ~ 2026.05</span></div>
@@ -668,7 +684,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="job">
         <div class="co">가드커뮤니케이션즈(주) <span class="yr">2008.12 ~ 2011.01, 정규직</span></div>
         <div class="rl">T-Cash, KTF iBADA, 교보문고 등 7개 프로젝트 연속 수행</div>
-        <div class="ds">Java/Spring, Struts 등 다양한 스택과 도메인을 빠르게 전환하며 프레임워크 설계와 사용자, 관리자 화면 개발을 책임. 다수 프로젝트에서 Spring 기반 프레임워크 설계를 직접 담당하며 SI 프레임워크 설계 역량의 토대를 쌓았고, 레거시(ASP/Struts)를 모던(Spring)으로 전환한 경험을 다수 축적. 통신, 인증, 학원, 공공, 도서 도메인을 두루 경험.</div>
+        <div class="ds">Java/Spring, Struts 등 다양한 스택과 도메인을 빠르게 전환하며 프레임워크 설계와 사용자, 관리자 화면 개발을 책임. 청솔학원 포탈, 교보문고 배움에서 Spring 기반 프레임워크 설계를 직접 맡아 이후 SI 프레임워크 설계 역량의 토대를 쌓았고, KTF iBADA에서는 ASP를 JSP로 전환. 통신, 인증, 교육, 공공, 도서 분야 프로젝트를 연속으로 수행.</div>
         <div class="tk mono"><span class="k">tech</span> Java, Spring, Struts, JSP, Oracle, MS-SQL</div>
       </div>
     </div>
