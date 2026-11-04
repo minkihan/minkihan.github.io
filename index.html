@@ -118,6 +118,7 @@ p.sub-label::before{content:"## ";color:var(--dim)}
 .diagram{margin:6px 0 18px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:16px 14px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .diagram:focus-visible{outline:2px solid var(--green-d);outline-offset:3px}
 .diagram svg{width:100%;height:auto;display:block}
+.diagram img{width:100%;height:auto;display:block;border-radius:6px}
 .diagram .cap{font-family:var(--mono);font-size:11.5px;color:var(--dim);text-align:center;margin-top:8px}
 .diagram svg .bx{fill:#111826;stroke:#26364a;stroke-width:1}
 .diagram svg .bxg{fill:#0e1c14;stroke:#3fb950;stroke-width:1.4}
@@ -280,6 +281,11 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
             <text class="xs dim" x="420" y="188">단계마다 필요한 규칙과 과거 결정을 자동으로 올려 보낸다</text>
           </svg>
           <div class="cap">// 단계마다 게이트가 실제 명령을 돌려 판정하고, 통과하지 못하면 다음 단계로 가지 못한다</div>
+        </div>
+
+        <div class="diagram">
+          <img src="go3-web.webp" width="1280" height="760" loading="lazy" alt="go3 웹의 플랜 목록 화면. 머리에 토큰 한도 막대와 시리얼 런 단추가 있고, 2026-11-01 에 완료된 플랜 네 건이 프로젝트, 상태, 항목 수와 함께 보인다">
+          <div class="cap">// go3 웹의 플랜 목록 (2026-11-01 실제 화면): 하루 단위로 쪽을 나누고, 토큰 한도와 시리얼 런 단추를 머리에 둔다</div>
         </div>
 
         <ul>
