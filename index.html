@@ -258,7 +258,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="body">
         <span class="flag">FLAGSHIP</span>
         <h3>go3: LLM 개발 파이프라인 (웹 UI, 시리얼 런, 로컬 지식 검색)</h3>
-        <p class="lead">LLM과 함께 일할 때 과거 작업을 색인해 주입하는 것만으로는 부족했다. 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했고, 해석은 매번 달라지며 틀려도 조용히 통과했다. 그래서 절차 자체를 코드로 고정한 파이프라인을 만들었다. 낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
+        <p class="lead">LLM과 함께 일할 때 과거 작업을 색인해 주입하는 것만으로는 부족했다. 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했고, 해석은 매번 달라지며 틀려도 조용히 통과했다. Claude Code 스킬 문서로 절차를 지시하던 /go와 이를 가볍게 줄인 /go2를 거쳤지만 문서는 세션마다 다시 해석되었고, 그래서 2026년 9월 절차 자체를 코드로 고정한 go3로 다시 설계했다. 낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 224" role="img" aria-label="플랜 수립부터 배포까지 단계가 이어지고 단계 사이마다 게이트가 조건을 검사하며 지식 저장소가 각 단계에 규칙을 주입하는 다이어그램">
@@ -298,7 +298,7 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li><b>하이브리드 검색</b>: 3-gram BM25와 로컬 임베딩(bge-m3, Ollama)의 순위를 RRF로 합치고 식별자가 든 질의는 정확 일치를 앞에 고정해, 새 세션과 메시지마다 관련 지식을 자동 주입. 로컬 임베딩 모델 넷을 순위 품질(MRR), 질의 지연, 색인 시간으로 견줘 bge-m3를 선택</li>
           <li><b>로컬 리랭커</b>: 공식 가중치를 GGUF로 변환한 bge-reranker-v2-m3를 llama.cpp 서버로 띄워 상위 후보를 다시 정렬하고, 장애 때는 기존 순위로 내려가게 설계. 설치 때 모델 파일과 실행본의 sha256을 승인 목록과 대조하고, 지식이 밖으로 나가는 외부 리랭커 API는 기각</li>
         </ul>
-        <div class="stackline mono"><span class="k">scale</span> 2026.09 재설계 이후 두 달, Go 약 11만 줄(시험 코드 약 11만 줄 별도), 패키지 34개, 최상위 명령 39개, 커밋 1,200여 건, 처리한 플랜 380여 건</div>
+        <div class="stackline mono"><span class="k">scale</span> 2026.09 재설계 이후 두 달, Go 약 11만 줄(시험 코드 약 11만 줄 별도), 패키지 34개, 최상위 명령 39개, 커밋 1,200여 건, /go와 /go2 시절을 포함해 처리한 플랜 1,000여 건(완료 980여 건)</div>
         <div class="stackline mono"><span class="k">stack</span> Go, SQLite, Cobra, Alpine.js, SSE, launchd, Ollama(bge-m3), llama.cpp(bge-reranker-v2-m3), Git worktree, Claude Code</div>
       </div>
     </article>
