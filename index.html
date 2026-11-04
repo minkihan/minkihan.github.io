@@ -119,6 +119,8 @@ p.sub-label::before{content:"## ";color:var(--dim)}
 .diagram:focus-visible{outline:2px solid var(--green-d);outline-offset:3px}
 .diagram svg{width:100%;height:auto;display:block}
 .diagram img{width:100%;height:auto;display:block;border-radius:6px}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:600px){.shots{grid-template-columns:repeat(2,1fr)}}
 .diagram .cap{font-family:var(--mono);font-size:11.5px;color:var(--dim);text-align:center;margin-top:8px}
 .diagram svg .bx{fill:#111826;stroke:#26364a;stroke-width:1}
 .diagram svg .bxg{fill:#0e1c14;stroke:#3fb950;stroke-width:1.4}
@@ -284,8 +286,8 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
         </div>
 
         <div class="diagram">
-          <img src="go3-web.webp" width="1280" height="760" loading="lazy" alt="go3 웹의 플랜 목록 화면. 머리에 토큰 한도 막대와 시리얼 런 단추가 있고, 2026-11-01 에 완료된 플랜 네 건이 프로젝트, 상태, 항목 수와 함께 보인다">
-          <div class="cap">// go3 웹의 플랜 목록 (2026-11-01 실제 화면): 하루 단위로 쪽을 나누고, 토큰 한도와 시리얼 런 단추를 머리에 둔다</div>
+          <img src="go3-web.webp" width="1280" height="1317" loading="lazy" alt="go3 웹의 플랜 목록에서 696 플랜을 펼친 화면. 왼쪽에 비유로 쓴 쉬운 설명이, 오른쪽에 설계, 구현, 시험, 배포, 문서화, 리포트 단계의 소요 시간이 보인다">
+          <div class="cap">// go3 웹의 플랜 목록에서 696 플랜을 펼친 화면 (2026-11-01): 비유로 쓴 쉬운 설명과 단계별 소요 시간을 한 자리에서 본다</div>
         </div>
 
         <ul>
@@ -361,6 +363,11 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <div class="cap">// 게이트가 허가할 때만 큐에서 원자적으로 인출하고, Lease로 중복 배정을 막고, 정체를 감지하면 스스로 복구한다</div>
         </div>
 
+        <div class="diagram">
+          <img src="stra-editor.webp" width="1407" height="840" loading="lazy" alt="stra.ai AI 더빙 편집기 화면. 7번째 세그먼트를 고른 상태로, 위에는 원문과 번역과 음성 지시 목록이, 왼쪽에는 번역 자막이 입혀진 영상이, 아래에는 원본 음성과 더빙 음성의 타임라인이 보인다">
+          <div class="cap">// stra.ai 더빙 편집기 (7번째 세그먼트 선택): 세그먼트마다 원문, 번역, 음성 지시를 고치고 타임라인에서 원본과 더빙 음성을 맞춘다</div>
+        </div>
+
         <ul>
           <li>백엔드 아키텍처를 여러 세대에 걸쳐 설계, 구현, 운영 (<b>메이저 전환을 서비스 중단 없이</b> 넘기는 구조)</li>
           <li>Python 백엔드, Python GPU 워커, Rust 서버리스로 갈린 언어 스택을 Go 하나로 통합 (<b>Strangler Fig 패턴 + ALB 경로 분기</b> 무중단 마이그레이션)</li>
@@ -376,6 +383,64 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>관리자 웹을 <b>사용량 정산, 스태프 관리, CS 도구</b>로 확장</li>
         </ul>
         <div class="stackline mono"><span class="k">stack</span> Go, Python, Rust, FastAPI, MongoDB(Replica Set/Change Streams), Redis, Stripe, AWS(Lambda/S3/ALB/ECR/SSM), Cloudflare(Workers/R2), Docker, GitHub Actions OIDC, ffmpeg</div>
+      </div>
+    </article>
+
+    <!-- 3. brooda -->
+    <article class="proj">
+      <div class="bar mono"><span class="f">brooda / kpop-pro/</span><span class="yr">2023.04 ~ 2026.05</span></div>
+      <div class="body">
+        <span class="flag" style="background:var(--cyan);color:#03203a">더빙 SaaS의 뿌리</span>
+        <h3>brooda: K-Pop Pro 앱 백엔드 / 인프라 1인 설계 및 운영</h3>
+        <p class="lead">K-Pop 자동 가사, 커뮤니티 서비스의 백엔드를 신규 구축. 유튜브 음악 영상의 가사를 자동 동기화하는 파이프라인이 핵심. 이 STT, 타임싱크 자산이 이후 분리되어 더빙 SaaS의 출발점이 됨.</p>
+
+        <div class="diagram">
+          <svg viewBox="0 0 840 296" role="img" aria-label="데몬 폴링 기반 가사 자동 싱크 파이프라인과 더빙 SaaS로의 확장 다이어그램">
+            <!-- top: app request -->
+            <rect class="bx" x="18" y="24" width="150" height="40" rx="7"/><text class="sm" x="93" y="44">K-Pop Pro 앱</text>
+            <path class="fl" d="M168,44 L196,44"/>
+            <rect class="bxg" x="198" y="24" width="180" height="40" rx="7"/><text class="sm g" x="288" y="44">FastAPI 백엔드</text>
+            <path class="fl" d="M378,44 L406,44"/>
+            <rect class="bx" x="408" y="24" width="200" height="40" rx="7"/><text class="sm" x="508" y="38">MongoDB 작업 큐</text><text class="xs dim" x="508" y="54">status: ready</text>
+            <!-- daemon polling loop -->
+            <path class="fld" d="M508,64 L508,92"/><text class="xs dim" x="560" y="80">데몬 폴링</text>
+            <rect class="bx" x="408" y="94" width="200" height="38" rx="7"/><text class="sm" x="508" y="113">GPU 워커 (비동기 처리)</text>
+            <!-- pipeline row -->
+            <path class="fl" d="M508,132 L508,158"/>
+            <rect class="grp" x="60" y="160" width="716" height="66" rx="8"/>
+            <text class="sm dim" x="418" y="176">가사 자동 싱크 파이프라인</text>
+            <rect class="bx" x="76" y="188" width="150" height="30" rx="6"/><text class="xs" x="151" y="203">유튜브 음악 영상</text>
+            <path class="fl" d="M226,203 L252,203"/>
+            <rect class="bx" x="254" y="188" width="120" height="30" rx="6"/><text class="xs" x="314" y="203">STT 전사</text>
+            <path class="fl" d="M374,203 L400,203"/>
+            <rect class="bx" x="402" y="188" width="150" height="30" rx="6"/><text class="xs" x="477" y="203">타임싱크 정렬</text>
+            <path class="fl" d="M552,203 L578,203"/>
+            <rect class="bxg" x="580" y="188" width="180" height="30" rx="6"/><text class="xs g" x="670" y="203">타임싱크 가사 자막</text>
+            <!-- infra + branch -->
+            <text class="xs dim" x="230" y="248">인프라: MongoDB 작업 큐, Redis PubSub, AWS S3, ffmpeg</text>
+            <path class="fla" d="M680,226 L680,254"/>
+            <rect class="bxa" x="560" y="256" width="256" height="34" rx="7"/><text class="xs a" x="688" y="273">STT, 타임싱크, GPU 워커 자산을 더빙 SaaS로 이식</text>
+          </svg>
+          <div class="cap">// 데몬이 큐를 폴링해 GPU로 가사를 싱크하는 이 구조가 그대로 더빙 SaaS의 기술적 뿌리가 되었다</div>
+        </div>
+
+        <div class="diagram">
+          <div class="shots">
+            <img src="kpop-pro.webp" width="600" height="1067" loading="lazy" alt="K-Pop Pro 대표 화면">
+            <img src="kpop-lyrics.webp" width="600" height="1067" loading="lazy" alt="번역이 붙은 자동 싱크 가사 화면">
+            <img src="kpop-sing.webp" width="600" height="1067" loading="lazy" alt="노래방 모드 화면">
+            <img src="kpop-cover.webp" width="600" height="1067" loading="lazy" alt="AI 커버 화면">
+          </div>
+          <div class="cap">// K-Pop Pro 앱 화면 (Google Play 스토어 스크린샷): 자동 싱크 가사, 노래방 모드, AI 커버</div>
+        </div>
+
+        <ul>
+          <li>Python + FastAPI 단일 스택으로 백엔드 설계, 구현 (<b>운영 복잡도 최소화 원칙</b>)</li>
+          <li>유튜브 음악 영상에서 STT를 거쳐 <b>타임싱크 가사 자막을 자동 생성</b>하는 파이프라인 설계</li>
+          <li>데몬 폴링, GPU 처리, 결과 반환의 비동기 구조 정립 (MongoDB 작업 큐 + Redis PubSub + S3)</li>
+          <li>이 STT, 타임싱크 파이프라인을 일반 영상 더빙으로 확장, <b>별도 프로젝트로 분리되어 더빙 SaaS의 출발점</b>이 됨</li>
+        </ul>
+        <div class="stackline mono"><span class="k">stack</span> Python, FastAPI, MongoDB, Redis(PubSub), AWS S3, Docker, ffmpeg</div>
       </div>
     </article>
 
@@ -432,54 +497,6 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
           <li>푸시투토크 응답을 스트리밍해 <b>말하는 도중 번역 자막이 실시간으로 채워지도록</b> 개선</li>
         </ul>
         <div class="stackline mono"><span class="k">stack</span> Go(Cobra), Flutter/Dart, PostgreSQL(pgvector), GCP(Cloud SQL/Cloud Run/Vertex AI/Cloud Translation), Gemini, RAG/임베딩 검색, STT, fastlane, Docker</div>
-      </div>
-    </article>
-
-    <!-- 3. brooda -->
-    <article class="proj">
-      <div class="bar mono"><span class="f">brooda / kpop-pro/</span><span class="yr">2023.04 ~ 2026.05</span></div>
-      <div class="body">
-        <span class="flag" style="background:var(--cyan);color:#03203a">더빙 SaaS의 뿌리</span>
-        <h3>brooda: K-Pop Pro 앱 백엔드 / 인프라 1인 설계 및 운영</h3>
-        <p class="lead">K-Pop 자동 가사, 커뮤니티 서비스의 백엔드를 신규 구축. 유튜브 음악 영상의 가사를 자동 동기화하는 파이프라인이 핵심. 이 STT, 타임싱크 자산이 이후 분리되어 더빙 SaaS의 출발점이 됨.</p>
-
-        <div class="diagram">
-          <svg viewBox="0 0 840 296" role="img" aria-label="데몬 폴링 기반 가사 자동 싱크 파이프라인과 더빙 SaaS로의 확장 다이어그램">
-            <!-- top: app request -->
-            <rect class="bx" x="18" y="24" width="150" height="40" rx="7"/><text class="sm" x="93" y="44">K-Pop Pro 앱</text>
-            <path class="fl" d="M168,44 L196,44"/>
-            <rect class="bxg" x="198" y="24" width="180" height="40" rx="7"/><text class="sm g" x="288" y="44">FastAPI 백엔드</text>
-            <path class="fl" d="M378,44 L406,44"/>
-            <rect class="bx" x="408" y="24" width="200" height="40" rx="7"/><text class="sm" x="508" y="38">MongoDB 작업 큐</text><text class="xs dim" x="508" y="54">status: ready</text>
-            <!-- daemon polling loop -->
-            <path class="fld" d="M508,64 L508,92"/><text class="xs dim" x="560" y="80">데몬 폴링</text>
-            <rect class="bx" x="408" y="94" width="200" height="38" rx="7"/><text class="sm" x="508" y="113">GPU 워커 (비동기 처리)</text>
-            <!-- pipeline row -->
-            <path class="fl" d="M508,132 L508,158"/>
-            <rect class="grp" x="60" y="160" width="716" height="66" rx="8"/>
-            <text class="sm dim" x="418" y="176">가사 자동 싱크 파이프라인</text>
-            <rect class="bx" x="76" y="188" width="150" height="30" rx="6"/><text class="xs" x="151" y="203">유튜브 음악 영상</text>
-            <path class="fl" d="M226,203 L252,203"/>
-            <rect class="bx" x="254" y="188" width="120" height="30" rx="6"/><text class="xs" x="314" y="203">STT 전사</text>
-            <path class="fl" d="M374,203 L400,203"/>
-            <rect class="bx" x="402" y="188" width="150" height="30" rx="6"/><text class="xs" x="477" y="203">타임싱크 정렬</text>
-            <path class="fl" d="M552,203 L578,203"/>
-            <rect class="bxg" x="580" y="188" width="180" height="30" rx="6"/><text class="xs g" x="670" y="203">타임싱크 가사 자막</text>
-            <!-- infra + branch -->
-            <text class="xs dim" x="230" y="248">인프라: MongoDB 작업 큐, Redis PubSub, AWS S3, ffmpeg</text>
-            <path class="fla" d="M680,226 L680,254"/>
-            <rect class="bxa" x="560" y="256" width="256" height="34" rx="7"/><text class="xs a" x="688" y="273">STT, 타임싱크, GPU 워커 자산을 더빙 SaaS로 이식</text>
-          </svg>
-          <div class="cap">// 데몬이 큐를 폴링해 GPU로 가사를 싱크하는 이 구조가 그대로 더빙 SaaS의 기술적 뿌리가 되었다</div>
-        </div>
-
-        <ul>
-          <li>Python + FastAPI 단일 스택으로 백엔드 설계, 구현 (<b>운영 복잡도 최소화 원칙</b>)</li>
-          <li>유튜브 음악 영상에서 STT를 거쳐 <b>타임싱크 가사 자막을 자동 생성</b>하는 파이프라인 설계</li>
-          <li>데몬 폴링, GPU 처리, 결과 반환의 비동기 구조 정립 (MongoDB 작업 큐 + Redis PubSub + S3)</li>
-          <li>이 STT, 타임싱크 파이프라인을 일반 영상 더빙으로 확장, <b>별도 프로젝트로 분리되어 더빙 SaaS의 출발점</b>이 됨</li>
-        </ul>
-        <div class="stackline mono"><span class="k">stack</span> Python, FastAPI, MongoDB, Redis(PubSub), AWS S3, Docker, ffmpeg</div>
       </div>
     </article>
 
