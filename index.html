@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 500px at 15% -5%, rgba(63,185,80,.08), transparent 60%),radial-gradient(800px 500px at 100% 10%, rgba(121,192,255,.06), transparent 55%);pointer-events:none}
 body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.35;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(circle at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 0%,#000,transparent 75%);pointer-events:none}
 .mono{font-family:var(--mono)}
@@ -261,7 +261,8 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       <div class="body">
         <span class="flag">FLAGSHIP</span>
         <h3>go3: LLM 개발 파이프라인 (웹 UI, 시리얼 런, 로컬 지식 검색)</h3>
-        <p class="lead">LLM과 함께 일할 때 과거 작업을 색인해 주입하는 것만으로는 부족했다. 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했고, 해석은 매번 달라지며 틀려도 조용히 통과했다. Claude Code 스킬 문서로 절차를 지시하던 /go와 이를 가볍게 줄인 /go2를 거쳤지만 문서는 세션마다 다시 해석되었고, 그래서 2026년 9월 절차 자체를 코드로 고정한 go3로 다시 설계했다. 낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
+        <p class="lead">LLM과 함께 일할 때 과거 작업을 색인해 주입하는 것만으로는 부족했다. 정작 어떤 절차로 일할지는 매 세션 LLM이 문서를 새로 해석해 판단했고, 해석은 매번 달라지며 틀려도 조용히 통과했다. Claude Code 스킬 문서로 절차를 지시하던 /go와 이를 가볍게 줄인 /go2를 거쳤지만 문서는 세션마다 다시 해석되었고, 그래서 2026년 9월 절차 자체를 코드로 고정한 go3로 다시 설계했다.</p>
+        <p class="lead">낮에는 플랜을 세우고 웹에서 승인만 하고, 설계부터 구현, 시험, 배포, 문서화, 리포트까지는 야간 시간대에 시리얼 런이 무인으로 실행한다. 이 도구 자신도 이 파이프라인으로 개발하며, 스트라 개발 업무용으로 시작해 퇴사 뒤에도 개인 프로젝트로 이어 가고 있다.</p>
 
         <div class="diagram">
           <svg viewBox="0 0 840 224" role="img" aria-label="플랜 수립부터 배포까지 단계가 이어지고 단계 사이마다 게이트가 조건을 검사하며 지식 저장소가 각 단계에 규칙을 주입하는 다이어그램">
