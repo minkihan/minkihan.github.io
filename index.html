@@ -121,6 +121,11 @@ p.sub-label::before{content:"## ";color:var(--dim)}
 .diagram img{width:100%;height:auto;display:block;border-radius:6px}
 .shots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media (max-width:600px){.shots{grid-template-columns:repeat(2,1fr)}}
+.shots.wide{grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:600px){.shots.wide{grid-template-columns:1fr}}
+.shots figure{margin:0}
+.shots figure a{display:block}
+.shots figcaption{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:center;margin-top:6px;line-height:1.5}
 .diagram .cap{font-family:var(--mono);font-size:11.5px;color:var(--dim);text-align:center;margin-top:8px}
 .diagram svg .bx{fill:#111826;stroke:#26364a;stroke-width:1}
 .diagram svg .bxg{fill:#0e1c14;stroke:#3fb950;stroke-width:1.4}
@@ -709,6 +714,18 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
 
         <div class="diagram">
           <img src="hscl-stats.webp" width="1280" height="1315" loading="lazy" alt="hscl 전적 탭. 2026년 11월 시즌 야생 Pirate Warrior 덱의 40판 28승 12패, 선공과 후공 승패, 전설 546위(최고 297위), 평균 판 길이, 끝난 방식, 가장 많이 만난 직업 타일 아래에 판마다 시작 등급을 막대 높이로, 승패를 색으로 보이는 등급 추이와 전설 순위 추이가 있다">
+        </div>
+
+        <div class="diagram">
+          <div class="shots wide">
+            <figure><a href="hscl-records.webp" target="_blank" rel="noopener"><img src="hscl-records.webp" width="1600" height="1360" loading="lazy" alt="기록실 탭. 야생 판 274판에서 고른 개인 기록 카드 여섯(가장 크게 뒤집은 필드 +56, 가장 아슬아슬한 승 생명력 1, 가장 큰 탈진 피해 91, 가장 깊은 마무리 -25, 한 턴 최대 피해 47, 가장 빠른 처치승 내 3턴)이 1위부터 3위까지 보인다. 상대 이름은 상대로 가렸다"></a><figcaption>기록실: 개인 기록 9종을 1위부터 3위까지</figcaption></figure>
+            <figure><a href="hscl-day.webp" target="_blank" rel="noopener"><img src="hscl-day.webp" width="1600" height="1360" loading="lazy" alt="전적 탭의 전체 판 절. 날짜별 전적 띠, 그날 전적 카드(3승 2패, 선후공, 전설 546위, 플레이 시간 29분, 흐름, 상대 직업별과 상대 등급별), 판마다 상대 직업과 많이 낸 카드, 양쪽 등급과 등급 차이, 턴과 시간, 끝 생명력, 끝난 방식이 보이는 판 표. 상대 이름은 상대로 가렸다"></a><figcaption>전적: 날짜별 전적 띠와 그날 전적, 판 표</figcaption></figure>
+            <figure><a href="hscl-bg.webp" target="_blank" rel="noopener"><img src="hscl-bg.webp" width="1600" height="1360" loading="lazy" alt="전장 탭. 시즌 14 솔로 15판의 지금 점수 6,991, 기록한 판의 점수 변화 +322, 평균 등수 3.8등, 상위 4위 53퍼센트, 마지막 판 1등 타일과 판마다 끝난 뒤의 점수와 등수를 잇는 점수 추이 그래프"></a><figcaption>전장: 점수 추이와 등수, Blizzard 공지 시즌</figcaption></figure>
+            <figure><a href="hscl-months.webp" target="_blank" rel="noopener"><img src="hscl-months.webp" width="1600" height="1360" loading="lazy" alt="월별 탭. 2026년 11월 시즌과 10월 시즌의 정규와 야생 카드마다 최종 또는 지금 전설 순위, 시작 등급과 최고 전설 순위, 전적, 전설 달성 시각, 주력 덱이 보인다"></a><figcaption>월별: 두 달 연속 정규와 야생 전설</figcaption></figure>
+            <figure><a href="hscl-collection.webp" target="_blank" rel="noopener"><img src="hscl-collection.webp" width="1600" height="1360" loading="lazy" alt="수집함 탭. 정규 완성 86퍼센트, 정규 완성까지 필요한 가루 185,200, 정규에서 없는 전설 75장, 황금과 시그니처 완성률, 전체 완성률 타일과 세트별 완성 막대"></a><figcaption>수집함: 세트별 완성과 필요한 가루</figcaption></figure>
+            <figure><a href="hscl-deck.webp" target="_blank" rel="noopener"><img src="hscl-deck.webp" width="1600" height="1360" loading="lazy" alt="덱 코드 탭에서 Pirate Warrior 덱을 고른 화면. 필요한 가루 0, 부족한 카드 0장, 가진 카드 30/30장, 만들 수 없는 카드 0장 타일 아래에 덱의 카드 18종이 보유 장수와 함께 격자로 보인다"></a><figcaption>덱 코드: 덱 카드를 수집함과 견줌</figcaption></figure>
+          </div>
+          <div class="cap">// 사진을 누르면 원본 크기로 열린다. 상대 배틀태그는 촬영할 때 상대로 가렸다</div>
         </div>
 
         <div class="diagram dense">
