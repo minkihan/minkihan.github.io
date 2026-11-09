@@ -663,9 +663,102 @@ footer{padding:34px 0 54px;border-top:1px solid var(--line);text-align:center;fo
       </div>
     </article>
 
-    <div class="group-label mono" style="margin-top:40px"><span class="co">개인 프로젝트</span><span class="pd">2026.10 ~</span><span class="ln"></span><span>공개 준비 중</span></div>
+    <div class="group-label mono" style="margin-top:40px"><span class="co">개인 프로젝트: 게임 데이터</span><span class="pd">2026.10 ~</span><span class="ln"></span><span>매일 직접 사용 중</span></div>
 
-    <!-- 8. keywordlab -->
+    <!-- 8. hscl -->
+    <article class="proj">
+      <div class="bar mono"><span class="f">hscl/</span><span class="yr">2026.10 ~ 현재</span></div>
+      <div class="body">
+        <span class="flag" style="background:var(--green-d);color:#03210a">게임 데이터 / macOS 메모리 읽기</span>
+        <h3>hscl: 하스스톤 전적과 수집함 분석 서비스 (로그 해석, 리플레이 해석, 메모리 읽기)</h3>
+        <p class="lead">하스스톤의 전적과 메타, 카드 수집 현황을 한곳에서 보는 맥 로컬 서비스다. 처음에는 HSReplay와 HSTracker가 남긴 기록을 받아 보여 주었지만, 트래커를 켜지 않았거나 업로드가 빠진 판은 hscl에서도 빠졌다. 그래서 판 기록은 게임이 쓰는 Power.log에서, 등급과 전설 순위와 수집품은 게임 메모리에서 직접 읽도록 출처를 다시 설계했다.</p>
+        <p class="lead">2026년 10월 하스스톤에 복귀하면서 만들어 매일 쓰고 있고, 이 도구로 전적을 보며 두 달 연속 정규와 야생 전설을 달았다. 시작부터 go3 파이프라인으로만 개발해 2주 남짓 동안 플랜 28개를 끝냈다.</p>
+
+        <div class="diagram dense">
+          <svg viewBox="0 0 840 300" role="img" aria-label="Power.log, 게임 메모리, Chrome 확장 프로그램 세 출처가 hscl 서비스의 해석기, 덱 묶음, SQLite 저장소를 거쳐 웹 화면 여섯 탭으로 이어지는 다이어그램">
+            <!-- sources -->
+            <text class="xs dim" x="125" y="24">출처</text>
+            <rect class="bxa" x="20" y="40" width="210" height="46" rx="7"/><text class="sm a" x="125" y="57">하스스톤 Power.log</text><text class="xs dim" x="125" y="73">판이 진행되는 동안 따라 읽기</text>
+            <rect class="bxa" x="20" y="100" width="210" height="46" rx="7"/><text class="sm a" x="125" y="117">하스스톤 메모리</text><text class="xs dim" x="125" y="133">서명한 도우미, 읽기 전용</text>
+            <rect class="bxc" x="20" y="160" width="210" height="46" rx="7"/><text class="sm c" x="125" y="177">Chrome 확장 프로그램</text><text class="xs dim" x="125" y="193">카드 도서관, HSGuru 아키타입</text>
+            <path class="fl" d="M230,63 L286,80"/>
+            <path class="fl" d="M230,123 L286,128"/>
+            <path class="fl" d="M230,183 L286,178"/>
+            <!-- service -->
+            <rect class="grp" x="270" y="30" width="290" height="184" rx="8"/>
+            <text class="sm g" x="415" y="46">hscl 서비스 (Go, launchd)</text>
+            <rect class="nd" x="290" y="60" width="250" height="40" rx="5"/><text class="xs" x="415" y="74">리플레이 해석기</text><text class="xs dim" x="415" y="89">HSReplay XML 꼴, 턴과 필드</text>
+            <rect class="nd" x="290" y="110" width="250" height="40" rx="5"/><text class="xs" x="415" y="124">덱 묶음과 아키타입</text><text class="xs dim" x="415" y="139">6장 이하 차이로 묶고 이름을 맞춤</text>
+            <rect class="nd" x="290" y="160" width="250" height="40" rx="5"/><text class="xs" x="415" y="174">SQLite (hs.db)</text><text class="xs dim" x="415" y="189">판, 수집함 스냅샷, 원본 로그 gzip</text>
+            <path class="fla" d="M560,122 L596,122"/>
+            <!-- screens -->
+            <text class="xs dim" x="710" y="24">웹 화면 여섯 탭</text>
+            <rect class="bx" x="600" y="34" width="220" height="26" rx="6"/><text class="xs" x="710" y="47">수집함: 세트별 완성과 필요한 가루</text>
+            <rect class="bxg" x="600" y="66" width="220" height="26" rx="6"/><text class="xs g" x="710" y="79">전적: 덱별 승패, 등급과 순위 추이</text>
+            <rect class="bx" x="600" y="98" width="220" height="26" rx="6"/><text class="xs" x="710" y="111">월별: 시즌마다 최종 등급과 주력 덱</text>
+            <rect class="bx" x="600" y="130" width="220" height="26" rx="6"/><text class="xs" x="710" y="143">기록실: 개인 기록 9종과 명경기</text>
+            <rect class="bx" x="600" y="162" width="220" height="26" rx="6"/><text class="xs" x="710" y="175">덱 코드: 부족한 카드와 가루 계산</text>
+            <rect class="bx" x="600" y="194" width="220" height="26" rx="6"/><text class="xs" x="710" y="207">전장: 등수, 점수, 1등 스크린샷</text>
+            <!-- note -->
+            <rect class="grp" x="20" y="236" width="800" height="50" rx="8"/>
+            <text class="xs dim" x="420" y="253">판 기록과 수집함과 아키타입의 출처를 HSTracker, HSReplay에서 Power.log, 메모리 읽기, HSGuru로 옮김</text>
+            <text class="xs dim" x="420" y="271">Go 외부 의존은 순수 Go SQLite(modernc) 하나, 웹 화면은 프레임워크 없는 JavaScript</text>
+          </svg>
+          <div class="cap">// 게임이 남기는 로그와 메모리를 직접 읽어, 외부 서비스에 올라가지 않은 판까지 쌓는다</div>
+        </div>
+
+        <div class="diagram">
+          <img src="hscl-stats.webp" width="1280" height="1315" loading="lazy" alt="hscl 전적 탭. 2026년 11월 시즌 야생 Pirate Warrior 덱의 40판 28승 12패, 선공과 후공 승패, 전설 546위(최고 297위), 평균 판 길이, 끝난 방식, 가장 많이 만난 직업 타일 아래에 판마다 시작 등급을 막대 높이로, 승패를 색으로 보이는 등급 추이와 전설 순위 추이가 있다">
+        </div>
+
+        <div class="diagram dense">
+          <svg viewBox="0 0 840 236" role="img" aria-label="도우미가 task_for_pid로 하스스톤을 열고 dyld 이미지 목록에서 Mono 라이브러리를 찾아 루트 도메인 함수의 기계어를 풀고, 어셈블리와 클래스 캐시를 거쳐 정적 필드와 객체를 이름으로 걸어 값을 읽는 경로와 멈추는 규칙 다이어그램">
+            <rect class="bxa" x="14" y="24" width="130" height="52" rx="7"/><text class="sm a" x="79" y="42">task_for_pid</text><text class="xs dim" x="79" y="60">도우미만 debugger 권한</text>
+            <path class="fl" d="M144,50 L156,50"/>
+            <rect class="bx" x="158" y="24" width="140" height="52" rx="7"/><text class="sm" x="228" y="42">dyld 이미지 목록</text><text class="xs dim" x="228" y="60">libmonobdwgc 찾기</text>
+            <path class="fl" d="M298,50 L310,50"/>
+            <rect class="bxg" x="312" y="24" width="176" height="52" rx="7"/><text class="sm g" x="400" y="42">_mono_get_root_domain</text><text class="xs dim" x="400" y="60">기계어(adrp, ldr) 풀기</text>
+            <path class="fl" d="M488,50 L500,50"/>
+            <rect class="bx" x="502" y="24" width="160" height="52" rx="7"/><text class="sm" x="582" y="42">어셈블리, 클래스 캐시</text><text class="xs dim" x="582" y="60">Assembly-CSharp</text>
+            <path class="fl" d="M662,50 L674,50"/>
+            <rect class="bx" x="676" y="24" width="150" height="52" rx="7"/><text class="sm" x="751" y="42">정적 필드와 객체</text><text class="xs dim" x="751" y="60">이름으로 걷기</text>
+            <path class="fld" d="M751,76 L751,92 L264,92 L264,104"/>
+            <!-- values -->
+            <rect class="grp" x="14" y="106" width="500" height="112" rx="8"/>
+            <text class="xs dim" x="264" y="121">읽는 값</text>
+            <rect class="nd" x="30" y="132" width="468" height="24" rx="5"/><text class="xs" x="264" y="144">NetCache: 등급, 전설 순위, 가루, 전장 점수</text>
+            <rect class="nd" x="30" y="160" width="468" height="24" rx="5"/><text class="xs" x="264" y="172">CollectionManager: 수집품 16,529항목을 162ms에</text>
+            <rect class="nd" x="30" y="188" width="468" height="24" rx="5"/><text class="xs" x="264" y="200">GameState: 판 중 양쪽 플레이어의 등급, 판 끝 전장 점수</text>
+            <!-- rules -->
+            <rect class="bxa" x="530" y="106" width="296" height="112" rx="7"/>
+            <text class="sm a" x="678" y="122">멈추는 규칙</text>
+            <text class="xs dim" x="678" y="144">값마다 따로 실패, 빠진 값은 까닭과 함께 남김</text>
+            <text class="xs dim" x="678" y="163">오프셋이 어긋나면 추측하지 않고 멈춤</text>
+            <text class="xs dim" x="678" y="182">읽는 동안 바뀐 목록은 세 번까지 다시 읽음</text>
+            <text class="xs dim" x="678" y="201">메모리 쓰기와 입력 흉내 없음</text>
+          </svg>
+          <div class="cap">// 권한은 작은 도우미 하나에만 주고, Mono 런타임을 이름으로 걸어 게임 화면에만 있던 값을 꺼낸다</div>
+        </div>
+
+        <ul>
+          <li><b>Power.log 따라 읽기</b>: 하스스톤이 쓰는 Power.log를 판이 진행되는 동안 inode와 오프셋으로 이어 읽고, HDT와 같은 되감기 규칙(GAME_RESET 앞 마지막 PLAY 블록부터 버림)을 적용해 HSReplay XML 꼴로 바꾼 뒤, 기존 리플레이와 같은 Go 해석기로 판과 턴과 필드를 기록. 판마다 원본 로그는 gzip으로 보관</li>
+          <li><b>리플레이 해석기</b>: HSReplay XML을 직접 푸는 Go 해석기로 탈진 피해, 턴 끝 필드, 한 턴 최대 피해 같은 지표를 뽑아, 기록실의 <b>개인 기록 9종</b>(가장 크게 뒤집은 필드, 가장 아슬아슬한 승, 최장 연승, 가장 빠른 전설 등)을 1위부터 3위까지 계산</li>
+          <li><b>덱 묶음과 아키타입</b>: 같은 덱을 조금씩 고쳐 쓴 판은 가장 최근 덱과 6장 이하 차이로 한 묶음으로 보고, 덱 코드마다 HSGuru에서 받은 아키타입 이름을 붙여 <b>옛 판까지 같은 이름으로 다시 맞춤</b>. 이름이 없는 묶음에는 직업과 그 묶음에만 있는 핵심 카드 둘을 붙임</li>
+          <li><b>전적 화면</b>: 매달 1일 브론즈 10으로 돌아가는 시즌과 정규, 야생 형식으로 판을 나눠 덱별 승패, 선후공, 상대 직업별 전적, <b>등급 추이와 전설 순위 추이</b>를 보이고, 판이 있는 날마다의 승패 띠와 그날 전적 카드는 서버가 한곳의 규칙으로 집계</li>
+          <li><b>수집함과 덱 코드</b>: 세트별 보유와 완성, 필요한 가루를 보이고, 붙여 넣은 덱 코드를 사이드보드까지 풀어 부족한 카드와 가루를 계산. 같은 카드의 재판본 보유를 더하고, 만들 수 없는 카드(핵심 세트, 획득 문구가 있는 카드)는 가루에서 빼며, 남는 카드는 분해 가루까지 계산</li>
+          <li><b>전장</b>: 등수, 영웅, 판 전후 점수, 마지막 필드, 로비 종족을 쌓고, 판을 한국 달이 아니라 블리자드가 공지한 전장 시즌으로 나누며, 1등 판에는 스크린샷을 붙임</li>
+          <li><b>메모리 읽기</b>: debugger 권한(hardened runtime 서명)을 받은 작은 도우미 실행본만 하스스톤을 읽기 전용으로 열고, Mono 런타임의 _mono_get_root_domain 기계어(arm64 adrp와 ldr, x86_64 rip 상대 mov)를 풀어 루트 도메인을 찾은 뒤, 어셈블리와 클래스 캐시와 정적 필드와 객체를 <b>이름으로 걸어</b> 등급, 전설 순위, 가루, 수집품, 전장 점수를 읽음. 웹 서비스 본체에는 권한도 cgo도 두지 않음</li>
+          <li><b>macOS 오프셋 실측</b>: 공개된 Windows 오프셋 표와 macOS의 구조 배치가 달라(어셈블리 목록은 160이 아니라 176, 클래스 이름 칸은 8바이트 앞) 표와 훑기와 검증을 함께 쓰고, 오프셋이 맞지 않으면 추측한 값을 내지 않고 멈춤. 스냅샷 한 번에 약 3만 9천 번 읽어 66ms</li>
+          <li><b>Chrome 확장과 갱신</b>: 평소 쓰는 Chrome의 확장 프로그램(Manifest V3)이 카드 목록과 아키타입을 받을 것이 있을 때만 뒤쪽 탭에서 받아 로컬 소켓으로 서비스에 넘기고, 보안 확인은 우회하지 않고 멈춤. 서비스와 확장 판이 다르면 확장이 스스로 다시 읽음</li>
+        </ul>
+        <div class="stackline mono"><span class="k">scale</span> 2026.10.24 시작 이후 2주 남짓, Go 약 2.4만 줄(시험 코드 약 2.4만 줄 별도), JavaScript 약 3천 줄, 커밋 210건, go3 플랜 29건(완료 28건), 쌓은 판 783판</div>
+        <div class="stackline mono"><span class="k">stack</span> Go, SQLite(modernc), cgo(Mach API), macOS codesign(hardened runtime), launchd, JavaScript, Chrome 확장(Manifest V3), go3</div>
+      </div>
+    </article>
+
+    <div class="group-label mono" style="margin-top:40px"><span class="co">개인 프로젝트: 구독 서비스</span><span class="pd">2026.10 ~</span><span class="ln"></span><span>공개 준비 중</span></div>
+
+    <!-- 9. keywordlab -->
     <article class="proj">
       <div class="bar mono"><span class="f">keywordlab/</span><span class="yr">2026.10 ~ 현재</span></div>
       <div class="body">
