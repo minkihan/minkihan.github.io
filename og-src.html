@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1200px;height:630px;overflow:hidden}
@@ -35,11 +36,9 @@ h1{font-size:86px;font-weight:800;letter-spacing:-1px;line-height:1.05;
 .role .amb{color:#ffcb6b}
 .tagline{font-size:21px;color:#7d8da3;margin-top:14px}
 .tagline .g{color:#7ee787}
-.stats{display:flex;gap:14px;margin-top:26px}
-.stat{background:#0f1520;border:1px solid #26364a;border-radius:10px;padding:14px 22px;text-align:center}
-.stat .n{font-size:32px;font-weight:800;color:#7ee787;line-height:1.1}
-.stat .n em{font-style:normal;font-size:.6em;color:#ffcb6b}
-.stat .l{font-size:14px;color:#7d8da3;margin-top:5px;white-space:nowrap}
+.tagline{line-height:1.55}
+.meta{display:flex;gap:30px;font-size:18px;color:#7d8da3}
+.meta .k{color:#3fb950}
 .foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;font-size:18px;color:#566178}
 .foot .url{color:#79c0ff}
 </style>
@@ -54,19 +53,16 @@ h1{font-size:86px;font-weight:800;letter-spacing:-1px;line-height:1.05;
     <div>
       <div class="prompt"><span class="u">minkihan</span><span class="p">@dev</span>:~$ <span class="c">whoami</span></div>
       <h1>한민기</h1>
-      <div class="role">12년차 백엔드 엔지니어 <span class="amb">|</span> 폴리글랏 풀사이클</div>
-      <div class="tagline"><span class="g">&gt;</span> 앱부터 백엔드, 인프라, AI까지 제품 하나를 처음부터 끝까지 완성해 출시합니다.</div>
+      <div class="role">12년차 백엔드 엔지니어 <span class="amb">|</span> LLM 개발 파이프라인 go3</div>
+      <div class="tagline"><span class="g">&gt;</span> 운영 중인 서비스를 멈추지 않고 구조를 바꿔 왔고,<br>&nbsp;&nbsp;지금은 LLM 개발 절차를 코드로 고정한 파이프라인 go3를 만들어 씁니다.</div>
     </div>
     <div>
-      <div class="stats">
-        <div class="stat"><div class="n">55<em>x</em></div><div class="l">이미지 축소</div></div>
-        <div class="stat"><div class="n">11<em>대</em></div><div class="l">GPU 로드밸런싱</div></div>
-        <div class="stat"><div class="n">53<em>%</em></div><div class="l">CDN 비용 절감</div></div>
-        <div class="stat"><div class="n">0<em>건</em></div><div class="l">전환 다운타임</div></div>
-        <div class="stat"><div class="n">RAG</div><div class="l">의료 통역 LLM</div></div>
+      <div class="meta">
+        <span><span class="k">career:</span> 12 yrs 8 mo</span>
+        <span><span class="k">from:</span> SI 프레임워크 설계에서 AI SaaS 아키텍트로</span>
       </div>
       <div class="foot">
-        <span>Go / Python / Rust / AWS / GCP</span>
+        <span>Go / TypeScript / Python / AWS / GCP</span>
         <span class="url">minkihan.github.io</span>
       </div>
     </div>
